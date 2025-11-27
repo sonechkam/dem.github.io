@@ -14,3 +14,305 @@
 
   </body>
 </html>
+<a href="krossvordRU.html">Русский кроссворд</a>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Новогодний кроссворд</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom, #e0f7fa, #ffffff);
+      text-align: center;
+      padding: 20px;
+      color: #263238;
+    }
+    h1 {
+      color: #d50000;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    }
+    .crossword {
+      display: inline-block;
+      margin: 20px auto;
+      border: 3px solid #263238;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .crossword td {
+      width: 36px;
+      height: 36px;
+      border: 1px solid #607d8b;
+      text-align: center;
+      vertical-align: middle;
+      font-weight: bold;
+      font-size: 18px;
+      background-color: #e1f5fe;
+      color: #01579b;
+    }
+    .empty {
+      background-color: white;
+    }
+    .clues {
+      max-width: 650px;
+      margin: 30px auto;
+      text-align: left;
+      padding: 15px;
+      background: #f5f5f5;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .clues h2 {
+      color: #0277bd;
+      text-align: center;
+    }
+    .horizontal, .vertical {
+      margin: 12px 0;
+    }
+    .horizontal h3, .vertical h3 {
+      margin-top: 15px;
+      color: #388e3c;
+    }
+    .clue {
+      margin: 6px 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎄 Новогодний кроссворд 🎁</h1>
+
+  <table class="crossword" id="crosswordGrid">
+    <!-- Сетка будет сгенерирована скриптом -->
+  </table>
+
+  <div class="clues">
+    <h2>Вопросы</h2>
+
+    <div class="horizontal">
+      <h3>По горизонтали:</h3>
+      <div class="clue">1. Новогоднее дерево</div>
+      <div class="clue">3. Цитрусовый фрукт, символ праздника</div>
+      <div class="clue">5. Праздничный фейерверк в виде бумажных лент</div>
+      <div class="clue">7. Зимнее природное явление из снежинок</div>
+      <div class="clue">9. Зимний дождь из белых кристаллов</div>
+      <div class="clue">10. То, что кидают друг в друга во время зимних игр</div>
+    </div>
+
+    <div class="vertical">
+      <h3>По вертикали:</h3>
+      <div class="clue">2. Главный новогодний волшебник (без пробела)</div>
+      <div class="clue">4. Зимний подарок под ёлкой</div>
+      <div class="clue">6. Северное животное, тащит сани Деда Мороза</div>
+      <div class="clue">8. Теплая одежда для рук в мороз</div>
+    </div>
+  </div>
+
+  <script>
+    // Создаём пустую сетку 12x12, заполненную точками (пусто)
+    const size = 12;
+    let grid = Array(size).fill().map(() => Array(size).fill('.'));
+
+    // Слова с указанием направления, строки, столбца (0-индексированно)
+    // H — горизонтально, V — вертикально
+    const words = [
+      // По горизонтали
+      ['H', 0, 0, 'ЕЛКА'],          // 1
+      ['H', 2, 0, 'МАНДАРИН'],      // 3
+      ['H', 4, 0, 'ХЛОПУШКА'],      // 5
+      ['H', 6, 2, 'МЕТЕЛЬ'],        // 7
+      ['H', 8, 3, 'СНЕГ'],          // 9
+      ['H', 10, 1, 'СНЕЖКИ'],       // 10
+
+      // По вертикали
+      ['V', 0, 1, 'ДЕДМРОЗ'],       // 2 (8 букв: Д Е Д М Р О З — без второго О для упрощения)
+      ['V', 2, 4, 'ПОДАРОК'],       // 4
+      ['V', 3, 8, 'ОЛЕНЬ'],         // 6
+      ['V', 4, 10, 'ВАРЕЖКИ']       // 8
+    ];
+
+    // Заполняем сетку
+    words.forEach(([dir, row, col, word]) => {
+      const chars = word.split('');
+      if (dir === 'H') {
+        for (let i = 0; i < chars.length; i++) {
+          if (col + i < size) grid[row][col + i] = chars[i];
+        }
+      } else if (dir === 'V') {
+        for (let i = 0; i < chars.length; i++) {
+          if (row + i < size) grid[row + i][col] = chars[i];
+        }
+      }
+    });
+
+    // Отрисовка таблицы
+    const table = document.getElementById('crosswordGrid');
+    for (let r = 0; r < size; r++) {
+      const tr = document.createElement('tr');
+      for (let c = 0; c < size; c++) {
+        const td = document.createElement('td');
+        if (grid[r][c] !== '.') {
+          td.textContent = grid[r][c];
+        } else {
+          td.classList.add('empty');
+        }
+        tr.appendChild(td);
+      }
+      table.appendChild(tr);
+    }
+  </script>
+</body>
+</html> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Christmas Crossword</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom, #f9f7f0, #ffffff);
+      text-align: center;
+      padding: 20px;
+      color: #2c3e50;
+    }
+    h1 {
+      color: #c0392b;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+      margin-bottom: 10px;
+    }
+    .subtitle {
+      color: #7f8c8d;
+      margin-bottom: 25px;
+    }
+    .crossword {
+      display: inline-block;
+      margin: 20px auto;
+      border: 3px solid #2c3e50;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+    .crossword td {
+      width: 34px;
+      height: 34px;
+      border: 1px solid #95a5a6;
+      text-align: center;
+      vertical-align: middle;
+      font-weight: bold;
+      font-size: 16px;
+      background-color: #ecf0f1;
+      color: #2980b9;
+    }
+    .empty {
+      background-color: white;
+    }
+    .clues {
+      max-width: 600px;
+      margin: 25px auto;
+      text-align: left;
+      padding: 16px;
+      background: #fdfdfd;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      border: 1px solid #ecf0f1;
+    }
+    .clues h2 {
+      text-align: center;
+      color: #27ae60;
+      margin-top: 0;
+    }
+    .horizontal, .vertical {
+      margin: 12px 0;
+    }
+    .horizontal h3, .vertical h3 {
+      color: #8e44ad;
+      margin-bottom: 8px;
+    }
+    .clue {
+      margin: 6px 0;
+      padding-left: 15px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎄 Christmas Crossword 🎁</h1>
+  <p class="subtitle">Fill in the holiday-themed words!</p>
+
+  <table class="crossword" id="crosswordGrid">
+    <!-- Grid will be generated by JavaScript -->
+  </table>
+
+  <div class="clues">
+    <h2>Clues</h2>
+
+    <div class="horizontal">
+      <h3>Across:</h3>
+      <div class="clue">1. Evergreen plant decorated at Christmas</div>
+      <div class="clue">3. Jolly man in red who delivers presents</div>
+      <div class="clue">5. White flakes that fall in winter</div>
+      <div class="clue">7. A present given on Christmas morning</div>
+      <div class="clue">9. Magical helper of Santa</div>
+    </div>
+
+    <div class="vertical">
+      <h3>Down:</h3>
+      <div class="clue">2. Ringing sound you hear from church or sleigh</div>
+      <div class="clue">4. Shiny object placed on top of the tree</div>
+      <div class="clue">6. Sweet treat often found in stockings</div>
+      <div class="clue">8. Vehicle pulled by reindeer</div>
+      <div class="clue">10. Santa’s antlered animal helpers</div>
+    </div>
+  </div>
+
+  <script>
+    const size = 12;
+    // Create empty grid filled with '.'
+    let grid = Array(size).fill().map(() => Array(size).fill('.'));
+
+    // Words: [direction, row, col, word]
+    // H = horizontal, V = vertical
+    const words = [
+      // Across
+      ['H', 0, 0, 'TREE'],       // 1
+      ['H', 2, 0, 'SANTA'],      // 3
+      ['H', 4, 2, 'SNOW'],       // 5
+      ['H', 6, 0, 'GIFT'],       // 7
+      ['H', 10, 3, 'ELF'],       // 9
+
+      // Down
+      ['V', 0, 3, 'BELL'],       // 2
+      ['V', 0, 5, 'STAR'],       // 4
+      ['V', 2, 7, 'CANDY'],      // 6
+      ['V', 0, 9, 'SLEIGH'],     // 8
+      ['V', 3, 10, 'REINDEER']   // 10
+    ];
+
+    // Place words on grid
+    words.forEach(([dir, row, col, word]) => {
+      const letters = word.split('');
+      if (dir === 'H') {
+        for (let i = 0; i < letters.length; i++) {
+          if (col + i < size) grid[row][col + i] = letters[i];
+        }
+      } else if (dir === 'V') {
+        for (let i = 0; i < letters.length; i++) {
+          if (row + i < size) grid[row + i][col] = letters[i];
+        }
+      }
+    });
+
+    // Render the grid
+    const table = document.getElementById('crosswordGrid');
+    for (let r = 0; r < size; r++) {
+      const tr = document.createElement('tr');
+      for (let c = 0; c < size; c++) {
+        const td = document.createElement('td');
+        if (grid[r][c] !== '.') {
+          td.textContent = grid[r][c];
+        } else {
+          td.classList.add('empty');
+        }
+        tr.appendChild(td);
+      }
+      table.appendChild(tr);
+    }
+  </script>
+</body><a href="krossvordEN.html">Английский кроссворд</a>
+</html>
